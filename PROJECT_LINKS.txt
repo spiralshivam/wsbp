@@ -1,5 +1,5 @@
 Project Title: Weather-Station Behaviour Pattern Grouping for Data Quality Assessment
 Problem Statement ID: SIH26069
 Registration Numbers of All Group Members: 12420021 (Shivam Misser), 12409400 (Rishit Bajaj)
-GitHub Repository Link: <PASTE GITHUB REPOSITORY URL HERE>
-Live Deployed Project Link: Frontend: <PASTE NETLIFY URL HERE> | Backend API: <PASTE RENDER URL HERE>/api/health
+GitHub Repository Link: https://github.com/spiralshivam/wsbp
+Live Deployed Project Link: Frontend: https://weather-station-api-gc1a.onrender.com | Backend API: https://weather-station-api-gc1a.onrender.com/api/health
