@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b3f">
+  <title>Weather Station Pattern Grouping | Project Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Project home">
+      <span class="brand-mark" aria-hidden="true">WS</span>
+      <span><strong>Weather Station Analysis</strong></span>
+    </a>
+  </header>
+
+  <main class="app-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Weather Station<br><span>Behaviour Patterns</span></h1>
+        <p>Grouping station-month weather profiles to explore data quality and climate behaviour.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+        <div class="rain rain-a"></div><div class="rain rain-b"></div><div class="rain rain-c"></div>
+        <div class="hero-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="float-label label-a">TMAX + TMIN</span><span class="float-label label-b">PCA · 2D</span>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Project modules">
+        <div class="side-label">PROJECT MODULES</div>
+        <nav class="tabs" role="tablist" aria-orientation="vertical">
+          <button class="tab active" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview" data-tab="overview"><span class="tab-icon">⌂</span><span>Overview</span><span class="tab-arrow">›</span></button>
+          <button class="tab" id="tab-data" role="tab" aria-selected="false" aria-controls="panel-data" data-tab="data"><span class="tab-icon">▤</span><span>Data pipeline</span><span class="tab-arrow">›</span></button>
+          <button class="tab" id="tab-features" role="tab" aria-selected="false" aria-controls="panel-features" data-tab="features"><span class="tab-icon">⌗</span><span>Features</span><span class="tab-arrow">›</span></button>
+          <button class="tab" id="tab-clustering" role="tab" aria-selected="false" aria-controls="panel-clustering" data-tab="clustering"><span class="tab-icon">◉</span><span>Clustering</span><span class="tab-arrow">›</span></button>
+          <button class="tab" id="tab-validation" role="tab" aria-selected="false" aria-controls="panel-validation" data-tab="validation"><span class="tab-icon">✓</span><span>Validation</span><span class="tab-arrow">›</span></button>
+          <button class="tab" id="tab-analysis" role="tab" aria-selected="false" aria-controls="panel-analysis" data-tab="analysis"><span class="tab-icon">⚙</span><span>Run analysis</span><span class="tab-arrow">›</span></button>
+          <button class="tab" id="tab-results" role="tab" aria-selected="false" aria-controls="panel-results" data-tab="results"><span class="tab-icon">▥</span><span>Results</span><span class="tab-arrow">›</span></button>
+        </nav>
+      </aside>
+
+      <div class="content-area">
+        <section class="tab-panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+          <div class="section-heading"><div><div class="eyebrow dark">PROJECT OVERVIEW</div><h2>At a glance</h2><p>A reproducible workflow from daily observations to interpretable monthly groups.</p></div><span class="module-index">01 / 07</span></div>
+          <div class="metric-strip">
+            <article class="metric-card"><span class="metric-icon blue">▦</span><strong>576</strong><span>station-month profiles</span></article>
+            <article class="metric-card"><span class="metric-icon teal">⌖</span><strong>8</strong><span>weather stations</span></article>
+            <article class="metric-card"><span class="metric-icon amber">◷</span><strong>6 yrs</strong><span>2019 to 2024</span></article>
+            <article class="metric-card"><span class="metric-icon violet">◉</span><strong>k = 2</strong><span>selected in baseline run</span></article>
+          </div>
+          <div class="overview-grid">
+            <article class="surface-card overview-main"><div class="card-kicker">THE PROJECT IN BRIEF</div><h3>Can monthly weather behaviour reveal meaningful groups?</h3><p>Daily NOAA observations are transformed into station-month profiles. Unsupervised clustering then groups profiles with similar temperature, precipitation, coverage and seasonal patterns.</p><a class="text-link" href="#analysis" data-open-tab="analysis">Run the analysis <span>→</span></a></article>
+            <article class="surface-card accent-card"><div class="card-kicker">BASELINE FINDING</div><div class="finding-number">2 <small>groups</small></div><p>The baseline separates mostly warm and cool station-months, reflecting climate and season.</p><span class="status-pill"><i></i> Exploratory result</span></article>
+          </div>
+          <article class="surface-card"><div class="card-title-row"><div><div class="card-kicker">WORKFLOW</div><h3>From observations to insight</h3></div><span class="subtle-label">5 project stages</span></div>
+            <div class="workflow"><div class="workflow-step"><b>01</b><span>Collect</span><small>NOAA daily records</small></div><div class="workflow-line"></div><div class="workflow-step"><b>02</b><span>Prepare</span><small>Clean & aggregate</small></div><div class="workflow-line"></div><div class="workflow-step"><b>03</b><span>Represent</span><small>Monthly features</small></div><div class="workflow-line"></div><div class="workflow-step"><b>04</b><span>Group</span><small>Two distance models</small></div><div class="workflow-line"></div><div class="workflow-step"><b>05</b><span>Evaluate</span><small>Metrics & stability</small></div></div>
+          </article>
+          <details class="detail-box"><summary>Project details</summary><div class="detail-content"><p><b>Problem:</b> explore whether station-month behaviour forms stable, interpretable groups that can support data-quality assessment.</p><p><b>Scope:</b> eight large-city US stations and six years of data. The sample is intentionally small and should not be treated as globally representative.</p><p><b>Team:</b> Shivam Misser and Rishit Bajaj · INT396 CA Project · Section K3P24RD.</p></div></details>
+        </section>
+
+        <section class="tab-panel" id="panel-data" role="tabpanel" aria-labelledby="tab-data" tabindex="0" hidden>
+          <div class="section-heading"><div><div class="eyebrow dark">MODULE 01</div><h2>Data pipeline</h2><p>Daily weather observations are validated, cleaned and aggregated into comparable monthly profiles.</p></div><span class="module-index">02 / 07</span></div>
+          <div class="brief-banner"><span class="banner-icon">▤</span><div><b>In brief</b><p>The bundled snapshot contains 576 monthly profiles from eight NOAA GHCN-Daily stations, covering 2019–2024.</p></div></div>
+          <div class="two-col">
+            <article class="surface-card"><div class="card-kicker">DATA SOURCE</div><h3>NOAA GHCN-Daily</h3><p>Global Historical Climatology Network daily station files, using three observed elements:</p><div class="chips"><span>TMAX · daily maximum</span><span>TMIN · daily minimum</span><span>PRCP · precipitation</span></div></article>
+            <article class="surface-card"><div class="card-kicker">STUDY DESIGN</div><h3>8 stations · 6 years</h3><p>New York, Los Angeles, Houston, Seattle, Atlanta, Boston, Dallas and Miami.</p><div class="mini-stat-row"><div><b>576</b><small>profiles</small></div><div><b>12</b><small>months per year</small></div><div><b>2019–24</b><small>study period</small></div></div></article>
+          </div>
+          <article class="surface-card"><div class="card-kicker">PREPARATION STEPS</div><div class="step-list"><div><b>1</b><span><strong>Read fixed-width records</strong><small>Parse station, date, element and daily measurement fields.</small></span></div><div><b>2</b><span><strong>Apply quality checks</strong><small>Remove missing values and observations carrying NOAA quality-rejection flags.</small></span></div><div><b>3</b><span><strong>Aggregate by station and month</strong><small>Calculate monthly means, precipitation totals and observation coverage.</small></span></div><div><b>4</b><span><strong>Load the frozen snapshot</strong><small>The default run uses the included processed CSV and does not require a download.</small></span></div></div></article>
+          <details class="detail-box"><summary>Data and preprocessing details</summary><div class="detail-content"><p>Raw data uses NOAA tenths-of-units; temperature and precipitation are converted to °C and mm. NOAA missing values (−9999) and quality-flagged readings are dropped. Measurement/source flags alone do not invalidate a reading.</p><p>Coverage is the fraction of eligible TMAX, TMIN and PRCP measurements observed during a month. Missing feature cells are median-imputed later in the modeling pipeline.</p><p>To refresh source files, run <code>python src/run_analysis.py --download</code> (internet required). The standard app/API run reads <code>data/processed/station_month_profiles.csv</code>.</p></div></details>
+        </section>
+
+        <section class="tab-panel" id="panel-features" role="tabpanel" aria-labelledby="tab-features" tabindex="0" hidden>
+          <div class="section-heading"><div><div class="eyebrow dark">MODULE 02</div><h2>Feature engineering</h2><p>Seven interpretable variables describe weather conditions, data coverage and seasonality.</p></div><span class="module-index">03 / 07</span></div>
+          <div class="brief-banner"><span class="banner-icon">⌗</span><div><b>In brief</b><p>Each station-month is represented by seven features. Station identity is kept out of the model to avoid grouping by name.</p></div></div>
+          <div class="feature-grid">
+            <article class="feature-card"><span class="feature-symbol temp">°</span><div><small>TEMPERATURE</small><h3>Mean TMAX</h3><p>Average daily maximum temperature (°C).</p></div></article>
+            <article class="feature-card"><span class="feature-symbol temp">°</span><div><small>TEMPERATURE</small><h3>Mean TMIN</h3><p>Average daily minimum temperature (°C).</p></div></article>
+            <article class="feature-card"><span class="feature-symbol range">↕</span><div><small>DAILY VARIATION</small><h3>Diurnal range</h3><p>Mean difference between maximum and minimum (°C).</p></div></article>
+            <article class="feature-card"><span class="feature-symbol rain">⌁</span><div><small>PRECIPITATION</small><h3>Log precipitation</h3><p>Log(1 + monthly precipitation in mm).</p></div></article>
+            <article class="feature-card"><span class="feature-symbol cover">▧</span><div><small>DATA QUALITY</small><h3>Observation coverage</h3><p>Observed eligible measurements divided by expected measurements.</p></div></article>
+            <article class="feature-card"><span class="feature-symbol season">∿</span><div><small>SEASONALITY</small><h3>Month sin / cos</h3><p>Cyclic encoding keeps December and January close together.</p></div></article>
+          </div>
+          <details class="detail-box"><summary>Feature preparation details</summary><div class="detail-content"><p>Precipitation is log-transformed to reduce the influence of very wet months. Month number is encoded with sine and cosine so that seasonal proximity is represented continuously across the year boundary.</p><p>Before clustering, the feature matrix is median-imputed and standardised to z-scores. This prevents features measured on larger numerical scales from dominating distance calculations.</p></div></details>
+        </section>
+
+        <section class="tab-panel" id="panel-clustering" role="tabpanel" aria-labelledby="tab-clustering" tabindex="0" hidden>
+          <div class="section-heading"><div><div class="eyebrow dark">MODULE 03</div><h2>Clustering</h2><p>Two partitioning approaches are compared with hierarchical clustering for context.</p></div><span class="module-index">04 / 07</span></div>
+          <div class="brief-banner"><span class="banner-icon">◉</span><div><b>In brief</b><p>K-Means groups profiles using Euclidean distance; k-medians uses Manhattan distance and is less sensitive to outliers.</p></div></div>
+          <div class="two-col model-cards"><article class="surface-card model-card"><div class="model-head"><span class="model-badge blue">L2</span><span class="model-type">PARTITION METHOD</span></div><h3>K-Means</h3><p>Fits cluster centres by minimising the sum of squared Euclidean distances.</p><div class="model-footer"><span>Distance</span><b>Euclidean</b><span>Objective</span><b>WCSS</b></div></article><article class="surface-card model-card"><div class="model-head"><span class="model-badge green">L1</span><span class="model-type">PARTITION METHOD</span></div><h3>k-medians</h3><p>Uses coordinate-wise medians and Manhattan distance for robust grouping.</p><div class="model-footer"><span>Distance</span><b>Manhattan</b><span>Objective</span><b>L1 sum</b></div></article></div>
+          <article class="surface-card"><div class="card-kicker">HIERARCHICAL COMPARISON</div><h3>Four ways to build a tree of groups</h3><div class="linkage-grid"><div><b>Ward</b><small>Minimises within-group variance (Euclidean only).</small></div><div><b>Complete</b><small>Uses the farthest pair across two groups.</small></div><div><b>Average</b><small>Uses average pairwise distance.</small></div><div><b>Single</b><small>Uses the nearest pair across two groups.</small></div></div></article>
+          <details class="detail-box"><summary>Model fitting details</summary><div class="detail-content"><p>Partition models are fitted for candidate cluster counts k = 2, 3, 4 and 5 by default; k = 6 is also supported. K-Means uses multiple initialisations with a fixed random seed. k-medians selects the lowest L1 objective across random starts.</p><p>Hierarchical methods are comparison baselines; Ward linkage is only defined for Euclidean distance. PCA is fitted after standardisation for the two-dimensional display, not for clustering.</p></div></details>
+        </section>
+
+        <section class="tab-panel" id="panel-validation" role="tabpanel" aria-labelledby="tab-validation" tabindex="0" hidden>
+          <div class="section-heading"><div><div class="eyebrow dark">MODULE 04</div><h2>Validation</h2><p>Multiple measures help assess separation, compactness, stability and agreement.</p></div><span class="module-index">05 / 07</span></div>
+          <div class="brief-banner"><span class="banner-icon">✓</span><div><b>In brief</b><p>No single metric determines quality. The selection rule considers group size, silhouette, resampling stability and Davies–Bouldin score.</p></div></div>
+          <div class="validation-grid"><article class="validation-card"><span class="metric-tag">SEPARATION</span><h3>Silhouette</h3><p>Compares within-cluster closeness with separation from the nearest other cluster. Higher is better.</p></article><article class="validation-card"><span class="metric-tag">COMPACTNESS</span><h3>Davies–Bouldin</h3><p>Measures within-group spread relative to between-group separation. Lower is better.</p></article><article class="validation-card"><span class="metric-tag">STABILITY</span><h3>Subsample ARI</h3><p>Refits on repeated 80% subsamples and compares labels with Adjusted Rand Index.</p></article><article class="validation-card"><span class="metric-tag">OBJECTIVE</span><h3>WCSS / L1</h3><p>Reports the model’s fitting objective. WCSS and L1 values are not directly comparable.</p></article></div>
+          <article class="surface-card selection-card"><div class="card-kicker">MODEL SELECTION RULE</div><div class="selection-flow"><span>Drop groups under 5%</span><i>→</i><span>Keep silhouette within 0.02 of best</span><i>→</i><span>Prefer stability, then lower DB</span></div></article>
+          <details class="detail-box"><summary>Validation details and interpretation</summary><div class="detail-content"><p>Subsample stability is computed over 20 repeated 80% draws using adjusted Rand index between the full-data partition and each refit on the same sampled rows. This assesses sensitivity to sampling variation, not truth or real-world fault detection accuracy.</p><p>Silhouette is calculated with the model’s matching distance. Davies–Bouldin uses Euclidean geometry. WCSS is the K-Means sum of squared distances; the k-medians L1 objective is a different quantity.</p></div></details>
+        </section>
+
+        <section class="tab-panel" id="panel-analysis" role="tabpanel" aria-labelledby="tab-analysis" tabindex="0" hidden>
+          <div class="section-heading"><div><div class="eyebrow dark">MODULE 05</div><h2>Run analysis</h2><p>Choose the date range, distance model and candidate number of groups.</p></div><span class="module-index">06 / 07</span></div>
+          <div class="brief-banner"><span class="banner-icon">⚙</span><div><b>Before you run</b><p>The default API reads the included processed data snapshot. It does not need to download NOAA files.</p></div></div>
+          <section class="surface-card run-card"><div class="card-kicker">ANALYSIS SETTINGS</div><div class="controls">
+            <label>Start year<input id="start" type="number" min="2019" max="2024" value="2019"></label>
+            <label>End year<input id="end" type="number" min="2019" max="2024" value="2024"></label>
+            <label class="wide-control">Distance model<select id="distance"><option value="euclidean">Euclidean · K-Means</option><option value="manhattan">Manhattan · k-medians</option></select></label>
+            <fieldset class="ks"><legend>Candidate cluster counts</legend><label><input type="checkbox" value="2" checked>2</label><label><input type="checkbox" value="3" checked>3</label><label><input type="checkbox" value="4" checked>4</label><label><input type="checkbox" value="5" checked>5</label><label><input type="checkbox" value="6">6</label></fieldset>
+            <button id="run" class="primary-button"><span>Run analysis</span><b>→</b></button>
+          </div><div class="run-footnote"><span>◷</span> Processing typically takes a few seconds on the bundled snapshot.</div></section>
+          <div id="status" aria-live="polite"></div>
+          <details class="detail-box"><summary>What happens when I run this?</summary><div class="detail-content"><p>The frontend sends your selections to the Flask API at <code>/api/analyze</code>. The backend filters the data to the requested years, fits partition and hierarchical models, computes validation scores, and returns cluster assignments and PCA coordinates as JSON.</p></div></details>
+        </section>
+
+        <section class="tab-panel" id="panel-results" role="tabpanel" aria-labelledby="tab-results" tabindex="0" hidden>
+          <div class="section-heading"><div><div class="eyebrow dark">MODULE 06</div><h2>Analysis results</h2><p>Run an analysis to populate the summary, PCA map and comparison tables.</p></div><span class="module-index">07 / 07</span></div>
+          <div id="results" hidden>
+            <div class="stats" id="stats"></div>
+            <section class="surface-card result-section"><div class="card-title-row"><div><div class="card-kicker">LOW-DIMENSIONAL VIEW</div><h3>Station-month profiles in PCA space</h3></div><span class="subtle-label">PC1 × PC2</span></div><div class="chartbox"><canvas id="pca"></canvas></div><p class="chart-caption">Each point is a station-month. PCA is used for visualisation only; clustering uses all seven standardised features.</p></section>
+            <section class="surface-card result-section"><div class="card-title-row"><div><div class="card-kicker">MODEL COMPARISON</div><h3>Validation metrics</h3></div><span class="subtle-label">Selected model highlighted</span></div><div class="scroll"><table id="metrics"></table></div><p class="table-note">WCSS applies to K-Means; L1 applies to k-medians and is not directly comparable.</p></section>
+            <div class="two-col result-section"><section class="surface-card"><div class="card-kicker">CLUSTER PROFILE</div><h3>Group means</h3><div class="scroll"><table id="clusters"></table></div></section><section class="surface-card"><div class="card-kicker">STATION BREAKDOWN</div><h3>Profiles per station</h3><div class="scroll"><table id="stations"></table></div></section></div>
+          </div>
+          <div id="empty-results" class="empty-state"><span class="empty-icon">▥</span><h3>Your results will appear here</h3><p>Go to <button class="inline-tab-link" data-open-tab="analysis">Run analysis</button> to select settings and generate the project results.</p></div>
+          <details class="detail-box"><summary>How to read these results</summary><div class="detail-content"><p>Cluster labels are arbitrary identifiers. Compare the group summaries and metrics to understand the partition. The PCA view can hide differences because it compresses seven dimensions into two.</p><p>These results describe observed climate and seasonal patterns in a small sample. They do not establish that a station is faulty or rank station operators.</p></div></details>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

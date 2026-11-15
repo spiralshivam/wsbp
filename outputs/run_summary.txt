@@ -1,0 +1,8 @@
+Data source: processed snapshot
+Profiles: 576
+Years: 2019-2024
+Seed: 42
+Runtime (s): 10.1
+Snapshot SHA-256: 23a68a444143770bdc056f408bb36dd012ab59161ee2c382e7ce421557fa67ce
+euclidean: selected k=2; stability ARI 0.948 +/- 0.039
+manhattan: selected k=2; stability ARI 0.941 +/- 0.079

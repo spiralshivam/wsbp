@@ -1,0 +1,8 @@
+,PC1,PC2
+tmax_mean_c,0.589,0.009
+tmin_mean_c,0.575,-0.202
+diurnal_range_c,0.178,0.726
+precipitation_log1p,-0.121,-0.627
+coverage,0.051,0.05
+month_sin,-0.319,0.156
+month_cos,-0.415,0.113

@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.streamlit/
+# Raw NOAA downloads are re-created on demand; the processed snapshot and outputs are kept.
+data/raw/*
+!data/raw/.gitkeep
